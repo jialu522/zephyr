@@ -51,8 +51,21 @@ API Changes
 Removed APIs and options
 ========================
 
+* Removed the deprecated the ``net_buf_put()`` and ``net_buf_get()`` API functions.
+
+* Removed the deprecated ``include/zephyr/net/buf.h`` header file.
+
 Deprecated APIs and options
+
+* The scheduler Kconfig options CONFIG_SCHED_DUMB and CONFIG_WAITQ_DUMB were
+  renamed and deprecated. Use :kconfig:option:`CONFIG_SCHED_SIMPLE` and
+  :kconfig:option:`CONFIG_WAITQ_SIMPLE` instead.
+
 ===========================
+
+* ``arduino_uno_r4_minima`` and ``arduino_uno_r4_wifi`` board targets have been deprecated in favor
+  of a new ``arduino_uno_r4`` board with revisions (``arduino_uno_r4@minima`` and
+  ``arduino_uno_r4@wifi``).
 
 New APIs and options
 ====================
@@ -62,6 +75,36 @@ New APIs and options
   fancy just list the link, that should contain the documentation. If you feel
   like you need to add more details, add them in the API documentation code
   instead.
+
+* Bluetooth
+
+  * Audio
+
+    * :c:macro:`BT_BAP_ADV_PARAM_CONN_QUICK`
+    * :c:macro:`BT_BAP_ADV_PARAM_CONN_REDUCED`
+    * :c:macro:`BT_BAP_CONN_PARAM_SHORT_7_5`
+    * :c:macro:`BT_BAP_CONN_PARAM_SHORT_10`
+    * :c:macro:`BT_BAP_CONN_PARAM_RELAXED`
+    * :c:macro:`BT_BAP_ADV_PARAM_BROADCAST_FAST`
+    * :c:macro:`BT_BAP_ADV_PARAM_BROADCAST_SLOW`
+    * :c:macro:`BT_BAP_PER_ADV_PARAM_BROADCAST_FAST`
+    * :c:macro:`BT_BAP_PER_ADV_PARAM_BROADCAST_SLOW`
+
+  * Host
+
+    * :c:func:`bt_le_get_local_features`
+    * :c:func:`bt_le_bond_exists`
+    * :c:func:`bt_br_bond_exists`
+
+* Display
+
+  * :c:func:`display_clear`
+
+    * LE Connection Subrating is no longer experimental.
+
+* Other
+
+  * :c:func:`count_bits`
 
 New Boards
 **********
@@ -85,6 +128,8 @@ New Samples
 ..
   Same as above for boards and drivers, this will also be recomputed at the time of the release.
  Just link the sample, further details go in the sample documentation itself.
+
+* :zephyr:code-sample:`stepper`
 
 Other notable changes
 *********************
